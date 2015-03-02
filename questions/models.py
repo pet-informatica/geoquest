@@ -40,3 +40,11 @@ class Answer(models.Model):
     answer = models.CharField(max_length=1, choices=ANSWER_CHOICES)
 
     date = models.DateTimeField(auto_now_add=True)
+
+class Badge(models.Model):
+	
+	category = models.ForeignKey(Category)
+
+	name = models.CharField(verbose_name="Nome", max_length=100)
+
+	description = models.CharField(verbose_name="Descricao", max_length=200)
