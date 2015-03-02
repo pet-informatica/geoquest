@@ -13,10 +13,6 @@ class Category(models.Model):
     name = models.CharField(verbose_name="Nome", max_length=100)
     description = models.CharField(verbose_name="Descricao", max_length=200, blank=True)
 
-	class Meta:
-		def __unicode__(self):
-			return self.name
-
 class Question(models.Model):
 
     category = models.ForeignKey(Category)
