@@ -8,7 +8,7 @@ from questions.serializers import QuestionSerializer, CategorySerializer, Answer
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
-    filter_fields = ('category')
+    filter_fields = ('category',)
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
