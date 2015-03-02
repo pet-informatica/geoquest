@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 
 ANSWER_CHOICES = (
 	('A', 'A'),
@@ -12,6 +12,7 @@ ANSWER_CHOICES = (
 class Category(models.Model):
     name = models.CharField(verbose_name="Nome", max_length=100)
     description = models.CharField(verbose_name="Descricao", max_length=200, blank=True)
+
 
 class Question(models.Model):
 
@@ -32,7 +33,7 @@ class Question(models.Model):
 
 class Answer(models.Model):
 
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
 
     question = models.ForeignKey(Question)
 
