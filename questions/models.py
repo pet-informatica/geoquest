@@ -9,6 +9,13 @@ ANSWER_CHOICES = (
 	('E', 'E'),
 )
 
+LEVEL_CHOICES = (
+    (1, '1'),
+    (2, '2'),
+    (3, '3'),
+)
+
+
 class Category(models.Model):
     name = models.CharField(verbose_name="Nome", max_length=100)
     description = models.CharField(verbose_name="Descricao", max_length=200, blank=True)
@@ -29,6 +36,8 @@ class Question(models.Model):
     option_e = models.CharField(verbose_name='Letra E', max_length=500)
 
     correct_answer = models.CharField(max_length=1, choices=ANSWER_CHOICES)
+
+    level = models.IntegerField(verbose_name='Nivel', max_length=1, choices=LEVEL_CHOICES)
 
 
 class Answer(models.Model):
