@@ -5,10 +5,13 @@ from rest_framework import routers
 
 from questions.views import QuestionViewSet, CategoryViewSet, AnswerViewSet
 
+from users.views import CustomUserViewSet
+
 router = routers.DefaultRouter()
 router.register(r'questions', QuestionViewSet)
 router.register(r'categories', CategoryViewSet)
 router.register(r'answers', AnswerViewSet)
+router.register(r'users', CustomUserViewSet)
 
 urlpatterns = patterns('',
     # Examples:
