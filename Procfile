@@ -1,0 +1,1 @@
+web: gunicorn geoquest.wsgi --log-file -
