@@ -13,6 +13,7 @@ $ git clone https://github.com/pet-informatica/geoquest.git
 
 Then, cd into the new directory and create your virtualenv.
 ```sh
+$ cd geoquest
 $ python -m venv env
 $ cd env/Scripts
 $ activate.bat
