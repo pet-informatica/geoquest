@@ -3,7 +3,7 @@ from django.contrib import admin
 
 from rest_framework import routers
 
-from questions.views import QuestionViewSet, CategoryViewSet, AnswerViewSet
+from questions.views import QuestionViewSet, CategoryViewSet, AnswerViewSet, RandomQuestion
 
 from users.views import CustomUserViewSet
 
@@ -21,8 +21,11 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-
+    
     url(r'^', include(router.urls)),
+    
+    url(r'^random/$', RandomQuestion.as_view()),
+    
     (r'^facebook/', include('django_facebook.urls')),
     (r'^accounts/', include('django_facebook.auth_urls')), #Don't add this line if you use django registration or userena for registration and auth.
 )
