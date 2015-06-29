@@ -5,7 +5,7 @@ from rest_framework import routers
 
 from questions.views import QuestionViewSet, CategoryViewSet, AnswerViewSet, RandomQuestion
 
-from users.views import CustomUserViewSet
+from users.views import CustomUserViewSet, UserStatistics
 
 router = routers.DefaultRouter()
 router.register(r'questions', QuestionViewSet)
@@ -25,7 +25,7 @@ urlpatterns = patterns('',
     url(r'^', include(router.urls)),
     
     url(r'^random/(?P<category>\d+)/(?P<level>\d+)/$', RandomQuestion.as_view()),
-    
+    url(r'^statistics/$', UserStatistics.as_view()),
     (r'^facebook/', include('django_facebook.urls')),
     (r'^accounts/', include('django_facebook.auth_urls')), #Don't add this line if you use django registration or userena for registration and auth.
 )
